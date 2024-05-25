@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Parking System</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .date-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .date-input input[type="date"]::before {
+    content: attr(placeholder);
+    display: block;
+    color: #999;
+    font-style: italic;
+    margin-bottom: 5px; /* Add spacing here */
+    padding:3px;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .bg{
+    filter:blur(1px);
+  }
+</style>
+</head>
+<body>
+  <img class="bg" src="D:\Miniproject\parkingimg.jpg" width=1400 height=700>
+<div class="container">
+  <h1>Welcome to Vehicle Parking System</h1>
+  <form id="parkingForm" action="clone.html">
+    <input type="text" placeholder="Vehicle Owner Name" required>
+    <input type="text" placeholder="Vehicle Name" required>
+    <input type="text" placeholder="Vehicle Number" required>
+    <div class="date-input">
+      <input type="date" placeholder="Entry Date " required name="entryDate">
+    </div>
+    <div class="date-input">
+      <input type="date" placeholder="Exit Date " required name="exitDate">
+    </div>
+    <div class="date-input">
+      <input type="number" placeholder="Token Number" required>
+    </div>
+    <button type="submit">Book a Slot</button>
+  </div>
+  </form>
+</div>
+
+<!--script>
+  document.getElementById('parkingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Add your logic to process the form submission and payment here
+    // You can use AJAX to send the data to your server and handle the payment
+    // After successful booking and payment, you can show a success message
+    //alert('Slot booked successfully!');
+  });
+</script-->
+</body>
+</html>

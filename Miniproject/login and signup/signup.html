@@ -1,0 +1,57 @@
+<html>
+<head>
+ <link rel="stylesheet" href="mysignup.css">   
+ <script>
+    function myfunction(){
+   var pass=document.getElementById("password").value;
+   var pass2=document.getElementById("password2").value;
+  if(pass=="")
+  {
+    document.getElementById("demo").innerHTML="Please fill the password";
+    return false;
+  }   
+  if(pass.length<6)
+  {
+   document.getElementById("demo").innerHTML="Password must contain  more than 6 characters"; 
+   return false;
+  }
+  if(pass!=pass2){
+    document.getElementById("demo").innerHTML="password doesn't match;"
+    return false;
+  }
+
+  }
+
+ </script>   
+</head>    
+<body>
+<center>
+  <!--img src="D:\HTML programs\instagram\primo-high-resolution-logo-black-on-transparent-background.jpg"class="class6"-->
+    <div class="class2">
+ <form name="f1"  action="Login1.html" onsubmit="return myfunction()">
+    
+    <h1><b>Create account</b></h1> 
+
+  <label class="class5"><b>FirstName</b></label>  
+  <input type="text" name="fname" class="class3"> 
+  <label class="class5"><b>LastName</b></label>
+  <input type="text" name="lname" class="class3"> 
+  <label class="class5"><b>Phone Number</b></label>
+  <input type="number" name="phno" class="class3"> 
+  <label class="class5"><b>Email Address</b></label>
+  <input type="email" name="email" class="class3">
+  <label class="class5"><b>Password</b></label>
+  <input type="password" name="password" id="password" class="class3"> 
+  <span id="demo" class="span1"></span>
+  <label class="class5"><b>conform</b></label>
+  <input type="password" name="password" id="password2" class="class3">
+  <span id="demo2" class="span1"></span> <br>
+  <input type="submit" value="signup" class="class1"> <br></br> </a>
+  <hr></hr>
+  <a href="Login1.html">
+  <p><b>Already have an acccount?<button="default" class="signin">Signin</button></b></p> </a> 
+  </div>
+ </form>   
+    </center>
+  
+</body>    

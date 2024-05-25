@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Space Search with Links</title>
+  <style>
+    /* Your CSS styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow: hidden; 
+      background-image: url('D:\Miniproject\McLarenArtura-10_crop-16x9.webp');
+      background-size: cover;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input[type="text"], button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #results {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      backdrop-filter: blur(5px);
+    }
+
+    .blur {
+      filter: blur(5px);
+    }
+
+    /* Custom styles for destination links */
+    .destination-links {
+      margin-top: 20px;
+      display: none; /* Initially hide the destination links container */
+    }
+
+    .destination-links a {
+      display: block;
+      background-color:black;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    .sign{
+  display:inline-block;
+  cursor: pointer;
+  font-size: large;
+
+}
+.bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <img class="bg" src="D:\Miniproject\McLarenArtura-10_crop-16x9.webp" width=1400 height=700 alt="Background Image">
+  <div id="container">
+    <h1>Parking Space Search</h1>
+    <div>
+      <label for="destination">Enter Destination:</label>
+      <input type="text" id="destination" placeholder="Enter your destination">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div id="results">
+      <!-- Parking space results will be displayed here -->
+    </div>
+    <!-- Destination links will be displayed here -->
+    <div id="uppal-links" class="destination-links">
+      <h2>Uppal Destination Links:</h2>
+      <!-- Add destination links for Uppal here -->
+      <a href="slots.html">
+      <b><input type="button"  value="Uppal Gandhi Statue" class="sign"></b>
+    </a>
+    <a href="slots.html">
+      <b><input type="button"  value="Mini shilparamam" class="sign"></b>
+    </a>
+    <a href="slots.html">
+      <b><input type="button" value="Manikanta Parking" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button" value="NGRI Car Parking" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button"  value="Sai Ram Gardens Parking" class="sign"></b>
+      </a>
+    </div>
+
+    <div id="secunderabad-links" class="destination-links">
+      <!-- Add destination links for Secunderabad here -->
+      <h2>Secunderabad Destination Links:</h2>
+      <a href="slots.html">
+        <b><input type="button" name="Secunderabad" value="HMR Paid Parking (Secunderabad)" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button" name="Secunderabad" value="IICT Four Wheeler Parking Area" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button" name="Secunderabad" value="SVIT Parking"  class="sign"></b>
+      </a>
+        <a href="slots.html">
+          <b><input type="button" name="Secunderabad" value="Yasodha Hospital Paid Parking" class="sign"></b>
+        </a>
+      </div>
+    <!-- Add this section to include destination links for Vanasthalipuram -->
+    <div id="vanasthalipuram-links" class="destination-links">
+      <h2>Vanasthalipuram Destination Links:</h2>
+      <a href="slots.html">
+        <b><input type="button" name="vanasthalipuram" value="NATIONAL PARKING YARD" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button" name="vanasthalipuram" value="RAJIV GANDHI PARK PARKING" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button" name="vanasthalipuram" value="RAVI PARKING" class="sign"></b>
+        </a>
+        <a href="slots.html">
+          <b><input type="button" name="vanasthalipuram" value="SRI MALLIKARJUNA PARKING PLACE" class="sign"></b>
+        </a>
+        <a href="slots.html">
+          <b><input type="button" name="" value="Sai Ram Gardens Parking" class="sign"></b>
+        </a>
+      </div>
+      <div id="karmanghat-links" class="destination-links">
+        <h2>Karmanghat Destination Links:</h2>
+        <a href="slots.html">
+          <b><input type="button"  value="SRI GANAPATHI PARKING PLACE" class="sign"></b>
+        </a>
+        <a href="slots.html">
+          <b><input type="button"  value="OM SRI SAI PARKING PLACE" class="sign"></b>
+        </a>
+        <a href="slots.html">
+          <b><input type="button"  value="NEXA PARKING PLACE" class="sign"></b>
+          </a>
+          </div>
+
+          <div id="lbnagar-links" class="destination-links">
+            <h2>L.B.Nagar- Destination Links:</h2>
+            <a href="slots.html">
+              <b><input type="button"  value="REDDY PARKING" class="sign"></b>
+            </a>
+            <a href="slots.html">
+              <b><input type="button"  value="SRI MALLIKARJUNA PARKING PLACE" class="sign"></b>
+            </a>
+            <a href="slots.html">
+              <b><input type="button"  value="SRI VISHAL PARKING PLACE" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="VINAYAKA PARKING" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="BHAVANI PARKING SERVIC" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="PARKING PALACE (CHANDRA PURI COLONY)" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"   value="SIRAJ PARKING WALLET" class="sign"></b>
+              </a>
+            </div>
+
+            <div id="nagole-links" class="destination-links">
+              <h2>Nagole Destination Links:</h2>
+              <a href="slots.html">
+                <b><input type="button"  value="Sai Ram Gardens Parking" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="NAVA CONVENTION PARKING" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="FRIENDS ZONE" class="sign"></b>
+                </a>
+                <a href="slots.html">
+                  <b><input type="button"  value="SRI VISHAL PARKING PLACE" class="sign"></b>
+                  </a>
+                  <a href="slots.html">
+                    <b><input type="button"  value="SURESH PARKING SERVICE" class="sign"></b>
+                    </a>
+                </div>
+                <div id="dilsuknagar-links" class="destination-links">
+                  <h2>Dilsuknagar Destination Links:</h2>
+                  <a href="slots.html">
+                    <b><input type="button"  value="CHANDRA SHEKAR PARKING SERVICE" class="sign"></b>
+                    </a>
+                    <a href="slots.html">
+                      <b><input type="button"  value="CHARAN PARKING WALLET" class="sign"></b>
+                      </a>
+                      <a href="slots.html">
+                        <b><input type="button"  value="PARKING AREA " class="sign"></b>
+                        </a>
+                        <a href="slots.html">
+                          <b><input type="button"  value="OM SRI SAI PARKING PLACE   " class="sign"></b>
+                          </a>
+                          <a href="slots.html">
+                            <b><input type="button"  value="JANATHA GARAGE KOTHAPET" class="sign"></b>
+                            </a>
+                            </div>
+<div id="koti-links" class="destination-links">
+  <h2>Koti Destination Links:</h2> 
+  <a href="slots.html">
+    <b><input type="button"  value="Gokul Chat Parking " class="sign"></b>
+    </a>
+    <a href="slots.html">
+      <b><input type="button"  value="M.J.M Parking" class="sign"></b>
+      </a>
+      <a href="slots.html">
+        <b><input type="button"  value="Fernandezz Parking" class="sign"></b>
+        </a>
+        <a href="slots.html">
+          <b><input type="button"  value="HS Car Parking" class="sign"></b>
+          </a>
+        </div>   
+
+        <div id="lakdikapool-links" class="destination-links">
+          <h2>Lakdikapool Destination Links:</h2>
+          <a href="slots.html">
+            <b><input type="button"  value="Lakdikapool MMTS Parking" class="sign"></b>
+            </a>
+            <a href="slots.html">
+              <b><input type="button"  value="Akbeer Parking Service (Nampally)" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="Parking Ground" class="sign"></b>
+                </a>
+            </div>
+
+            <div id="khairtabad-links" class="destination-links">
+              <h2>Khairtabad Destination Links:</h2>  
+              <a href="slots.html">
+              <b><input type="button"  value="Lakdikapool MMTS Parking" class="sign"></b>
+              </a>
+              <a href="slots.html">
+                <b><input type="button"  value="S.K Price" class="sign"></b>
+                </a>  
+             </div>   
+            <div id="mehidipatnam-links" class="destination-links">
+            <h2>Mehidipatnam Destination Links:</h2>
+            <a href="slots.html">
+            <b><input type="button"  value="Rythu Bazar Paid Parking " class="sign"></b>
+          </a>
+          <a href="slots.html">
+            <b><input type="button"  value="Langer Houze Parking Garage" class="sign"></b>
+            </a>
+            <a href="slots.html">
+              <b><input type="button"  value="Parking (Masab Tank)" class="sign"></b>
+              </a>
+              </div>
+
+    <div id="kukatpally-links" class="destination-links">
+    <h2>Kukatpally Destination Links:</h2>
+    <a href="slots.html">
+    <b><input type="button"  value="Murgan Parking Yard" class="sign"></b>
+    </a>
+    <a href="slots.html">
+    <b><input type="button"  value="KPHB Road Parking" class="sign"></b>
+    </a> 
+    <a href="slots.html">
+    <b><input type="button"  value="Pisa House Parking" class="sign"></b>
+    </a>
+    <a href="slots.html">
+    <b><input type="button"  value="JNTU Main Parking" class="sign"></b>
+    </a>  
+   </div>
+  
+  <div id="ameerpet-links" class="destination-links">
+  <h2>Ameerpet Destination Links:</h2>    
+  <a href="slots.html">
+  <b><input type="button"  value="Sri Sai Veerabadra Vehicle Parking" class="sign"></b>
+    </a> 
+  <a href="slots.html">
+   <b><input type="button"  value="Gurudwara Car Parking" class="sign"></b>
+     </a>
+   </div>
+
+<div id="banjarahills-links" class="destination-links">
+<h2>Banjara Hills Destination Links:</h2>  
+<a href="slots.html">
+<b><input type="button"  value="Jalagam Vengalrao Car Parking" class="sign"></b>
+</a>
+ <a href="slots.html">
+  <b><input type="button"  value="Sri Jaganath Temple Parking" class="sign"></b>
+  </a> 
+  <a href="slots.html">
+ <b><input type="button"  value="KBR Park Parking 2" class="sign"></b>
+ </a>
+<a href="slots.html">
+<b><input type="button"  value="KBR Park Parking 1" class="sign"></b>
+ </a>  
+ <a href="slots.html">
+  <b><input type="button"  value="KBR Park Parking 5" class="sign"></b>
+ </a>  
+ <a href="slots.html">
+  <b><input type="button"  value="City Center Parking" class="sign"></b>
+  </a>  
+    </div> 
+                    
+   <div id="jubilee-hills-links" class="destination-links">
+      <h2>Jubilee Hills Destination Links:</h2>
+    <a href="slots.html">
+    <b><input type="button"  value="Chakravarthi Parking Palace" class="sign"></b>
+      </a>
+    <a href="slots.html">
+  <b><input type="button"  value="KBR Park Parking 3" class="sign"></b>
+  </a> 
+  <a href="slots.html">
+    <b><input type="button"  value="KBR Park Parking 5" class="sign"></b>
+    </a>
+    <a href="slots.html">
+   <b><input type="button"  value="TTD Temple Parking Entrance" class="sign"></b>
+   </a>  
+  <a href="slots.html">
+  <b><input type="button"  value="Parking Area (Filmnagar)" class="sign"></b>
+    </a>  
+        <a href="slots.html">
+        <b><input type="button"  value="Parking Place" class="sign"></b>
+        </a>  
+      
+    </div>            
+    <!-- Include destination links for other areas as needed -->
+  </div>
+    <!-- JavaScript code here... -->
+    <script>
+      // JavaScript code here...
+      // Imaginary parking space data (replace with real data when available)
+      const parkingSpaces = [
+        {
+          "id": 1,
+          "location": "Uppal",
+          "price_per_hour": 5.00,
+          "availability": 20
+        },
+        {
+          "id": 2,
+          "location": "Secunderabad",
+          "price_per_hour": 7.50,
+          "availability": 10
+        },
+        {
+          "id": 3,
+          "location": "Vanasthalipuram",
+          "price_per_hour": 6.00,
+          "availability": 15
+        },
+        {
+        "id": 4,
+        "location": "Karmanghat",
+        "price_per_hour": 4.50,
+        "availability": 5,
+       // "lat": 40.7282,
+       // "lng": -74.0776
+      },
+      {
+        "id": 5,
+        "location": "L.B.Nagar",
+        "price_per_hour": 5.00,
+        "availability": 20,
+       // "lat": 40.7128,
+       // "lng": -74.0060
+        
+      },
+      {
+        "id": 6,
+        "location": "Nagole",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 7,
+        "location": "Dilsuknagar",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 8,
+        "location": "Charminar",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      {
+        "id": 9,
+        "location": "Koti",
+        "price_per_hour": 5.00,
+        "availability": 20
+      },
+      {
+        "id": 10,
+        "location": "Lakdkikapool",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 11,
+        "location": "Khairtabad",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 12,
+        "location": "Mehidipatnam",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+      {
+        "id": 13,
+        "location": "Kukatpally",
+        "price_per_hour": 5.00,
+        "availability": 20,
+        "lat": 40.7128,
+        "lng": -74.0060
+        
+      },
+      {
+        "id": 14,
+        "location": "Ameerpet",
+        "price_per_hour": 7.50,
+        "availability": 10,
+        "lat": 40.7259,
+        "lng": -74.0072
+      },
+      {
+        "id": 15,
+        "location": "Banjarahills",
+        "price_per_hour": 6.00,
+        "availability": 15,
+        "lat": 40.7193,
+        "lng": -74.0424
+      },
+      {
+        "id": 16,
+        "location": "Jubilee-hills",
+        "price_per_hour": 4.50,
+        "availability": 5,
+        "lat": 40.7282,
+        "lng": -74.0776
+      },
+        // Add more parking spaces here...
+      ];
+
+      // Function to display parking space results
+      function displayParkingSpaces(parkingData) {
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+
+        if (parkingData.length === 0) {
+          resultsDiv.textContent = 'No parking spaces available near this destination.';
+        } else {
+          parkingData.forEach(space => {
+            const spaceDiv = document.createElement('div');
+            spaceDiv.textContent = `Location: ${space.location}, Price per Hour: $${space.price_per_hour.toFixed(2)}, Availability: ${space.availability} spots`;
+            spaceDiv.style.color = '#fff';
+            resultsDiv.appendChild(spaceDiv);
+          });
+        }
+      }
+
+      // Search button click event
+      document.getElementById('searchBtn').addEventListener('click', () => {
+        const destination = document.getElementById('destination').value;
+        const matchingParkingSpaces = searchParkingSpacesByLocation(destination);
+        displayParkingSpaces(matchingParkingSpaces);
+
+        // Show destination links based on the entered destination
+        showDestinationLinks(destination.toLowerCase());
+      });
+
+      // Function to search parking spaces by location
+      function searchParkingSpacesByLocation(destination) {
+        return parkingSpaces.filter(space => space.location.toLowerCase().includes(destination.toLowerCase()));
+      }
+
+      // Function to show destination links
+      function showDestinationLinks(destination) {
+        // Hide all destination link containers
+        const destinationLinkContainers = document.querySelectorAll('.destination-links');
+        destinationLinkContainers.forEach(container => {
+          container.style.display = 'none';
+        });
+
+        // Show the specific destination link container
+        const destinationLinkContainer = document.querySelector(`#${destination}-links`);
+        if (destinationLinkContainer) {
+          destinationLinkContainer.style.display = 'block';
+        }
+      }
+    </script>
+
+</body>
+</html>

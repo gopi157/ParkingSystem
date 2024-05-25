@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Space Search with Maps</title>
+  <!-- Replace 'YOUR_API_KEY' with your actual Google Maps API key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+  <style>
+    /* Your CSS styles here */
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Parking Space Search with Maps</h1>
+  <div>
+    <label for="destination">Enter Destination:</label>
+    <input type="text" id="destination" placeholder="Enter your destination">
+    <button id="searchBtn">Search</button>
+  </div>
+  <div id="map"></div>
+  <div id="results">
+    <!-- Parking space results will be displayed here -->
+  </div>
+  <script>
+    // Imaginary parking space data (replace with real data when available)
+    const parkingSpaces = [
+      {
+        "id": 1,
+        "location": "Uppal",
+        "price_per_hour": 5.00,
+        "availability": 20,
+        "lat": 40.7128,
+        "lng": -74.0060
+      },
+      // ... (other parking space data) ...
+    ];
+
+    let map;
+
+    // Function to initialize the Google Map
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 40.7128, lng: -74.0060 }, // Default center (New York)
+        zoom: 14 // Default zoom level
+      });
+    }
+
+    // Function to add parking space markers to the map
+    function addParkingMarkers(parkingData) {
+      parkingData.forEach(space => {
+        const marker = new google.maps.Marker({
+          position: { lat: space.lat, lng: space.lng },
+          map: map,
+          title: space.location
+        });
+      });
+    }
+
+    // Function to update map to show the entered destination
+    function updateMapWithDestination(destination) {
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: destination }, (results, status) => {
+        if (status === 'OK' && results[0]) {
+          const destinationLatLng = results[0].geometry.location;
+          map.setCenter(destinationLatLng);
+          map.setZoom(15); // Adjust the zoom level as needed
+          // You can also add a marker for the destination if desired
+        } else {
+          alert('Destination not found. Please try again.');
+        }
+      });
+    }
+
+    // Function to display parking space results
+    function displayParkingSpaces(parkingData) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = ''; // Clear previous results
+
+      if (parkingData.length === 0) {
+        resultsDiv.textContent = 'No parking spaces available near this destination.';
+      } else {
+        parkingData.forEach(space => {
+          const spaceDiv = document.createElement('div');
+          spaceDiv.textContent = `Location: ${space.location}, Price per Hour: $${space.price_per_hour.toFixed(2)}, Availability: ${space.availability} spots`;
+
+          // Add a hyperlink for "Uppal" parking location
+          if (space.location.toLowerCase() === 'uppal') {
+            const uppalLink = document.createElement('a');
+            uppalLink.textContent = 'Sai Parking';
+            uppalLink.href = 'https://goo.gl/maps/wGnbxZfy5NZYtmYf7';
+            uppalLink.target = '_blank'; // Open in a new tab
+            // Add padding to the hyperlink
+            uppalLink.style.padding = '10px'; // You can adjust the value as needed
+            spaceDiv.appendChild(document.createElement('br')); // Add a line break
+            spaceDiv.appendChild(uppalLink);
+          }
+
+          resultsDiv.appendChild(spaceDiv);
+        });
+      }
+    }
+
+    // Search button click event
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const destination = document.getElementById('destination').value;
+      updateMapWithDestination(destination);
+      const matchingParkingSpaces = searchParkingSpacesByLocation(destination);
+      displayParkingSpaces(matchingParkingSpaces);
+    });
+
+    // Function to search parking spaces by location
+    function searchParkingSpacesByLocation(destination) {
+      return parkingSpaces.filter(space => space.location.toLowerCase().includes(destination.toLowerCase()));
+    }
+  </script>
+</body>
+</html>

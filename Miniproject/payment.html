@@ -1,0 +1,102 @@
+<html>
+<head>
+<style>
+   .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+    } 
+</style>    
+<link rel="stylesheet" href="pay.css">
+<script>
+        function myfunc() {
+            // Check if the card holder name is empty
+            const holder = document.forms["form1"]["holder"].value;
+            if (holder === "") {
+                alert("Please enter Card Holder Name");
+                return false; // Prevent form submission
+            }
+
+            // Check if the CVV is empty
+            const cvv = document.forms["form1"]["cvv"].value;
+            if (cvv === "") {
+                alert("Please enter CVV");
+                return false; // Prevent form submission
+            }
+
+            // Check if the Card Number is empty
+            const cardNum = document.forms["form1"]["card_num"].value;
+            if (cardNum === "") {
+                alert("Please enter Card Number");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</head>
+<body>
+ <img class="bg" src="D:\Miniproject\depositphotos_38642433-stock-illustration-soft-colored-abstract-background-eps10.jpg" width=1400 height=700 alt="Background Image">   
+<center>
+    <form name="form1" action="transaction.html" onsubmit="return myfunc()">
+ <div class="class1">
+   <h1>Conform Your Payment</h1>
+   
+   <label class="class5"><b>Card Holder</b></label>
+   <input type="text" name="holder" id="hold" class="class2">
+       &emsp;
+   <label class="class5"><b> Cvv</b></label>
+   <input type="password" name="cvv" id="Cv" class="class3">
+   <p></p>
+   <div class="class7">
+   <label class="class5"><b>Card Number</b></label>
+   <input type="number" name="card_num" id="Card_num" class="class2"> </div>
+   <p></p>
+   <div class="card_exp">
+   <label class="class8"><b>Card Expiry</b></label> <p></p>
+   <!--input type="checkbox" name="card_exp" class="class4"-->
+   <select name="months" id="months">
+    <option value="Jan">Jan</option>
+    <option value="Feb">Feb</option>
+    <option value="Mar">Mar</option>
+    <option value="Apr">Apr</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="Aug">Aug</option>
+    <option value="Sept">Sept</option>
+    <option value="Oct">Oct</option>
+    <option value="Nov">Nov</option>
+    <option value="Dec">Dec</option>
+   </select> 
+   <select name="year" id="year" class="class9">
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+    <option value="2027">2027</option>
+    <option value="2028">2028</option>
+    <option value="2029">2029</option>
+    <option value="2030">2030</option>
+    <option value="2031">2031</option>
+    <option value="2032">2032</option>
+    <option value="2033">2033</option>
+   </select>
+   </div>
+   <div class="card_img">
+    <img src="D:\Miniproject\vi.png" class="card_img">
+    <img src="D:\Miniproject\mc.png" class="card_img">
+    <img src="D:\Miniproject\pp.png" class="card_img">
+   </div> <br>
+   <div>
+    <!--a href="transaction.html"-->
+  <input type="submit" value="Conform" class="conf">
+    </div>                      
+    </div>
+  </center>
+   </form>   
+</body>
+</html>
+
+  

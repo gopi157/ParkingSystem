@@ -1,0 +1,65 @@
+<html>
+<head><Title>Registration Form</Title>
+<style>
+* {
+  padding:0;
+margin:0;
+font-family:Lobster-cursive;
+}
+body {
+background: url('./bg5.jfif'); 
+background-size:cover;
+}
+.login-form{
+width:350px;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);  
+position:absolute;
+color:black;
+}
+.login-form h1{
+font-size:35px;
+text-align:center;
+text-transform:uppercase;
+margin: 40px o;}
+
+.login-form p{
+font-size:17px;
+margin:15px 0;}
+
+.login-form input{
+font-size:15px;
+width:65%;
+box-sizing:border-box;
+padding:15px 10px;
+border:1px solid #ccc;
+border-radius:5px;}
+
+.login-form h5{
+text-align:25% 0;}
+
+.sign{
+  display:inline-block;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<div class="login-form">
+<center><h1>Login Page</h1>
+<form name="login"  method="post"  action="index.html">
+<p>User Name:</p>
+<input type="text" name='uname'/><br>
+<p>Password:</p>
+<input type="password" name='pwd' /><br>
+<br>
+<input type="submit" value='Login' class="sign"/><br></br>
+<a  href="signup.html">
+<input type="button" name="signup"value="Signup" id="demo1" class="sign"><br> </br></a>
+<p><b>Forgot Password?</b><p>
+</form></center>
+</div>
+</body>
+</html> 
